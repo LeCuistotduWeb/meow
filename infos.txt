@@ -1,0 +1,8 @@
+
+Doc cat api :                https://docs.thecatapi.com/api-reference/images/images-search
+cat API key:                 258d4327-2de5-4b8b-b431-fc6316805baf
+
+icon :                       https://react-icons.github.io/react-icons/fa.html
+palette color :              https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
+swippable react components : https://github.com/sandstreamdev/react-swipeable-list
+react router :               https://reacttraining.com/react-router/web/example/basic

@@ -1,38 +1,149 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #457B9D;
+  --secondary-color: #A8DADC;
+  --background-color: #F1FAEE;
+  --background-dark-color: #1D3557;
+  --accent-color: #E63946;
+  --header-height: 10vh;
+  --margin: 1em;
+  --padding: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+ul {list-style: none;}
+h1 {
+  font-size: 2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* APP */
+.app {
+  background: var(--background-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+
+.toggleMenu {
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+/* HEADER */
+.app-header {
+  background-color: var(--background-dark-color);
+  height: var(--header-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  padding: 0 15px;
+}
+/* end HEADER */
+
+
+/* SIDEBAR */
+.sidebar-menu {
+  position: fixed;
+  top: var(--header-height);
+  left: -100%;
+  bottom: 0;
+  width: 80vw;
+  background-color: var(--secondary-color);
+  transition: all .3s;
+  z-index: 10;
+}
+.sidebar-menu.open{
+  left: 0;
+  transition: all .3s;
+}
+.sidebar-menu ul {
+  text-align: left;
+  list-style-type: none;
+}
+.sidebar-menu ul li {
+  list-style-type: none;
+}
+.sidebar-menu ul li a{
+  color: var(--background-dark-color-color);
+  padding: 20px;
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.sidebar-overlay {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .1);
+}
+.sidebar-overlay.show{
+  display: block;
+  visibility: visible;
+  z-index: 9;
+}
+/* end sidebar */
+
+
+
+/* MAIN */
+main {
+  min-height: 90vh;
+  margin: var(--margin);
+}
+
+main h2 {
+  text-align: center;
+  margin: var(--padding);
+}
+/* end MAIN */
+
+
+.swipeable-list-item {
+  background-color: red;
+}
+.swipe-card  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swipe-card img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* CONROLSBAR */
+.controls-bar {
+  width: 100%;
+  margin: var(--margin) auto;
+  text-align: center;
+}
+
+
+/* BREEDS */
+.breeds-list {}
+.breeds-item {
+  padding: var(--padding);
 }
