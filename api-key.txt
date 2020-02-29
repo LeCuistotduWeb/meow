@@ -1,0 +1,13 @@
+Thanks for signing up, welcome to the API!
+
+Your API key:
+
+258d4327-2de5-4b8b-b431-fc6316805baf
+
+Use it as the 'x-api-key' header when making any request to the API.More details on authentication.
+
+API Documentation | Postman Collection.
+
+If you need any example code, or have any questions then checkout the forum: https://forum.thatapiguy.com
+
+All the best, Aden.
