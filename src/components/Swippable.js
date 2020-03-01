@@ -22,7 +22,6 @@ export default class Swippable extends Component {
     async getImage(){
         const randomImg = await axios.get('https://api.thecatapi.com/v1/images/search')
         .then(function (response) {
-            console.log(response);
             return response.data[0].url
         })
         
@@ -30,7 +29,7 @@ export default class Swippable extends Component {
     }
 
     action(action){
-        alert(action)
+        console.log(action)
     }
 
 

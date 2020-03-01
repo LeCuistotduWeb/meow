@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
 import * as FontAwesome from 'react-icons/lib/fa'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
 
 // Component
 import Sidebar from './components/Sidebar'
-import Swippable from './components/Swippable'
-import ControlsBar from './components/ControlsBar'
-import BreedsList from './components/breeds/BreedsList';
-import Favorites from './components/favorites/Favorites';
-import Breed from './components/breeds/Breed';
+import Home from './components/Home'
+import Voting from './components/voting/Voting'
+import BreedsList from './components/breeds/BreedsList'
+import Favorites from './components/favorites/Favorites'
+import Breed from './components/breeds/Breed'
 
 class App extends Component {
 
@@ -22,10 +22,6 @@ class App extends Component {
 
   toggleSidebar(){
     return this.setState({showSidebar: !this.state.showSidebar})
-  }
-
-  handleClickLike(){
-    console.log("i like thie picture :)")
   }
 
   render() {
@@ -48,9 +44,11 @@ class App extends Component {
             <Switch>
               
               <Route exact path="/">
-                <h2>Cute or Ugly ?</h2>
-                <Swippable/>
-                <ControlsBar/>
+                <Home />
+              </Route>
+
+              <Route path="/voting">
+               <Voting/>
               </Route>
 
               <Route path="/breeds/:breedName" children={<Breed/>} />

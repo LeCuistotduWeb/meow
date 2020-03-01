@@ -16,26 +16,38 @@ export default class breedsList extends Component {
         this.getBreeds()
     }
 
-    async getBreeds(){
+    getBreeds(){
         axios.defaults.headers.common['x-api-key'] = config.apiKey
-        const breedsList = await axios.get('https://api.thecatapi.com/v1/breeds')
-        .then(function (response) {
-            return response.data
+        axios.get('https://api.thecatapi.com/v1/breeds')
+        .then(res => {
+            const breeds = res.data;
+            this.setState({ breeds });
         })
-        this.setState({breeds: breedsList})
-    }
-
-    renderList(){
-        
     }
     
     render() {
+
+        const {breeds} = this.state
+
+        const getBreedImage = breedId => {
+            axios.get(`https://api.thecatapi.com/v1/images/search?breed_id=${breedId}`)
+            .then(function(res){
+                const imageSrc = res.data[0].url    
+                const imageAlt = res.data[0].breeds[0].name
+                console.log(imageSrc)
+                return <img src={imageSrc} alt={imageAlt} />
+            })
+          }
+
         return (
             <ul className={"breeds-list"}>
-                    {this.state.breeds.map(breed => {
+                    {breeds.map(breed => {
                         return ( 
-                            <li className={"breeds-item"}>
-                                <Link to={`/breeds/${breed.name}`}>{breed.name}</Link>
+                            <li className={"breeds-item"} key={breed.id}>
+                                <Link to={`/breeds/${breed.name}`}>
+                                    {getBreedImage(breed.id)}
+                                    {breed.name}
+                                </Link>
                             </li>
                         )
                     })}  
