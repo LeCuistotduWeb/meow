@@ -5,9 +5,9 @@ export default class ControlsBar extends Component {
     render() {
         return (
             <div className={"controls-bar"}>
-                <button><FontAwesome.FaHeart /></button>
-                <button><FontAwesome.FaStar /></button>
-                <button><FontAwesome.FaClose /></button>
+                <button className="like"><FontAwesome.FaHeart /></button>
+                <button className="favorites"><FontAwesome.FaStar /></button>
+                <button className="dislike"><FontAwesome.FaClose /></button>
             </div>
         )
     }

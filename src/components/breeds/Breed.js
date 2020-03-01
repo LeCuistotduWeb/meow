@@ -20,8 +20,8 @@ export default class Breed extends Component {
 
     async getBreed(){
         const breedName = window.location.pathname.replace('/breeds/', '')
-        console.log(breedName)
-        const breedData = await axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}&api_key=`+ config.apiKey)
+        axios.defaults.headers.common['x-api-key'] = config.apiKey
+        const breedData = await axios.get(`https://api.thecatapi.com/v1/breeds/search?q=${breedName}`)
         .then(function (response) {
             return response.data
         })

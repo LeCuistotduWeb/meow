@@ -24,6 +24,10 @@ class App extends Component {
     return this.setState({showSidebar: !this.state.showSidebar})
   }
 
+  handleClickLike(){
+    console.log("i like thie picture :)")
+  }
+
   render() {
 
     const {showSidebar} = this.state
@@ -44,7 +48,7 @@ class App extends Component {
             <Switch>
               
               <Route exact path="/">
-                <h2>Cute or creepy</h2>
+                <h2>Cute or Ugly ?</h2>
                 <Swippable/>
                 <ControlsBar/>
               </Route>

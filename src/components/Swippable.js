@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { SwipeableList, SwipeableListItem } from '@sandstreamdev/react-swipeable-list'
-import '@sandstreamdev/react-swipeable-list/dist/styles.css'
+import Cards, { Card } from './react-swipe-card'
 import axios from 'axios'
 
 export default class Swippable extends Component {
@@ -9,6 +8,7 @@ export default class Swippable extends Component {
         super(props)
         this.state = {
             image : "",
+            data : ['Alexandre', 'Thomas', 'Lucien']
         }
     }
 
@@ -29,26 +29,22 @@ export default class Swippable extends Component {
         this.setState({image: randomImg})
     }
 
+    action(action){
+        alert(action)
+    }
+
 
     render() {
         return (
-            <SwipeableList>
-                <SwipeableListItem
-                    swipeLeft={{
-                    content: <div>is Cute</div>,
-                    action: () => console.info('swipe action triggered')
-                    }}
-                    swipeRight={{
-                    content: <div>is Creepy</div>,
-                    action: () => console.info('swipe action triggered')
-                    }}
-                    onSwipeProgress={progress => console.info(`Swipe progress: ${progress}%`)}
-                >
-                    <div className={"swipe-card"}>
-                        <img src={this.state.image} alt="ddd"/>
-                    </div>
-                </SwipeableListItem>
-            </SwipeableList>
+            <Cards onEnd={e => this.action('end')} className='react-swipe-card'>
+                {this.state.data.map(item => 
+                <Card 
+                    onSwipeLeft={e => this.action('swipe left')} 
+                    onSwipeRight={e => this.action('swipe right')}>
+                    <h2>{item}</h2>
+                </Card>
+                )}
+            </Cards>
         )
     }
 }

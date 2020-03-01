@@ -17,7 +17,8 @@ export default class breedsList extends Component {
     }
 
     async getBreeds(){
-        const breedsList = await axios.get('https://api.thecatapi.com/v1/breeds?api_key='+ config.apiKey)
+        axios.defaults.headers.common['x-api-key'] = config.apiKey
+        const breedsList = await axios.get('https://api.thecatapi.com/v1/breeds')
         .then(function (response) {
             return response.data
         })

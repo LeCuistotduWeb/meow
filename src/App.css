@@ -59,7 +59,7 @@ a:hover {
 /* SIDEBAR */
 .sidebar-menu {
   position: fixed;
-  top: var(--header-height);
+  top: 0;
   left: -100%;
   bottom: 0;
   width: 80vw;
@@ -94,7 +94,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .3);
 }
 .sidebar-overlay.show{
   display: block;
@@ -125,6 +125,9 @@ main h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  height: 60vh;
+  width: 100%;
 }
 
 .swipe-card img {
@@ -133,17 +136,58 @@ main h2 {
 }
 
 
-
 /* CONROLSBAR */
 .controls-bar {
   width: 100%;
   margin: var(--margin) auto;
   text-align: center;
 }
+.controls-bar button {
+  outline: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 15px;
+  background-color: #fff;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  font-size: 1.3em;
+  transition: all .3s;
+}
+.controls-bar button:active,
+.controls-bar button:hover {
+  transform: scale(1.1);
+  transition: all .2s;
+}
+
+.controls-bar button.like {
+  color: green;
+}
+.controls-bar button.dislike {
+  color: red;
+}
+.controls-bar button.favorites {
+  color: black;
+}
+
+/* end CONROLSBAR */
+
 
 
 /* BREEDS */
 .breeds-list {}
 .breeds-item {
   padding: var(--padding);
+}
+/* end BREEDS */
+
+
+.react-swipe-card {
+  width: 400px;
+  height: 400px;
+}
+.react-swipe-card .card{
+  width: 100%;
+  min-height: 350px;
+  background-color: #fff;
 }
