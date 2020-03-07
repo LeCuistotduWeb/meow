@@ -6,7 +6,7 @@ export default class Voting extends Component {
     render() {
         return (
             <Fragment>
-                 <h2>Cute or Ugly ?</h2>
+                 <h2>Chat Roulette</h2>
                 <Swippable/>
                 <ControlsBar/>
             </Fragment>

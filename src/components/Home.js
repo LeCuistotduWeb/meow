@@ -6,6 +6,9 @@ export default class Home extends Component {
         return (
             <ul className="home-lists">
                 <li>
+                    <Link to="/chatroulette">Chat Roulette</Link>
+                </li>
+                <li>
                     <Link to="/breeds">Races</Link>
                 </li>
                 <li>

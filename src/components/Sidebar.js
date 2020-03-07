@@ -19,6 +19,9 @@ export default class Sidebar extends Component {
                         <Link to="/breeds" onClick={handleClickOverlay}>Races</Link>
                     </li>
                     <li>
+                        <Link to="/chatroulette" onClick={handleClickOverlay}>Chat Roulette</Link>
+                    </li>
+                    <li>
                         <Link to="/favorites" onClick={handleClickOverlay}>Favoris</Link>
                     </li>
                 </ul>

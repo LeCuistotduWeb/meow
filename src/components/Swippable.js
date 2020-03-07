@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Cards, { Card } from './react-swipe-card'
+import Cards, { Card } from './swipe-card'
 import axios from 'axios'
 
 export default class Swippable extends Component {

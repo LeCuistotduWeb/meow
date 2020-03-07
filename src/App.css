@@ -176,11 +176,13 @@ main h2 {
 
 /* BREEDS */
 .breeds-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 .breeds-item {
+  position: relative;
   padding: var(--padding);
   height: 150px;
   width: 150px;
@@ -191,6 +193,14 @@ main h2 {
   align-items: center;
   text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, .2);
+  background-position: center;
+  background-size: cover;
+}
+.breeds-item a {
+  background: #ffffffa6;
+  padding: 10px;
+  color: var(--primary-color);
+  font-weight: bold;
 }
 /* end BREEDS */
 

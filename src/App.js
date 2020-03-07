@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import './App.css'
 import * as FontAwesome from 'react-icons/lib/fa'
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom"
+import config from './config'
+import axios from 'axios'
 
 // Component
 import Sidebar from './components/Sidebar'
@@ -17,16 +19,52 @@ class App extends Component {
     super(props)
     this.state = {
       showSidebar: false,
+      breeds : [],
     }
   }
+
+  componentDidMount(){
+        if(localStorage.getItem('breeds')){
+            this.setState({breeds: JSON.parse(localStorage.getItem('breeds'))})
+        }
+        else {
+            this.getBreeds()
+        }
+    }
 
   toggleSidebar(){
     return this.setState({showSidebar: !this.state.showSidebar})
   }
 
+  getBreeds() {
+    let breeds = []
+    axios.defaults.headers.common['x-api-key'] = config.apiKey
+    axios.get('https://api.thecatapi.com/v1/breeds')
+      .then(res => {
+        breeds = res.data;
+      }).then(() => {
+        this.getBreedsImage(breeds)
+      })
+  }
+
+  getBreedsImage(breeds) {
+    const updateBreeds = [...breeds]
+    updateBreeds.map(breed => {
+      axios.get(`https://api.thecatapi.com/v1/images/search?breed_id=${breed.id}`)
+        .then(function (res) {
+          breed.picture = res.data[0].url
+        }).then(() => {
+          this.setState({
+            breeds: updateBreeds
+          });
+          localStorage.setItem('breeds', JSON.stringify(updateBreeds))
+        })
+    })
+  }
+
   render() {
 
-    const {showSidebar} = this.state
+    const {showSidebar, breeds} = this.state
 
     return (
       <Router>
@@ -47,14 +85,14 @@ class App extends Component {
                 <Home />
               </Route>
 
-              <Route path="/voting">
-               <Voting/>
+              <Route path="/chatroulette">
+                <Voting breeds={breeds}/>
               </Route>
 
               <Route path="/breeds/:breedName" children={<Breed/>} />
               
               <Route path="/breeds">
-                <BreedsList />
+                <BreedsList breeds={breeds}/>
               </Route>
               
               <Route path="/favorites">
