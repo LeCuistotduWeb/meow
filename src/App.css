@@ -254,3 +254,18 @@ main h2 {
 .choices-card .card img{
   width: 100%;
 }
+
+/* Favorites */
+.favorites__container .favorites__content-null{
+  text-align: center;
+  margin-top: 50px;
+}
+.favorites__container.grid .favorite-item {
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--margin);
+}
+.favorites__container.grid .favorite-item img {
+  max-width: 100%;
+}
+/* end Favorites */
