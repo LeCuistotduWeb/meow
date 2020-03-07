@@ -24,13 +24,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-        if(localStorage.getItem('breeds')){
-            this.setState({breeds: JSON.parse(localStorage.getItem('breeds'))})
-        }
-        else {
-            this.getBreeds()
-        }
+    if(localStorage.getItem('breeds')){
+        this.setState({breeds: JSON.parse(localStorage.getItem('breeds'))})
     }
+    else {
+        this.getBreeds()
+    }
+  }
 
   toggleSidebar(){
     return this.setState({showSidebar: !this.state.showSidebar})
@@ -54,9 +54,7 @@ class App extends Component {
         .then(function (res) {
           breed.picture = res.data[0].url
         }).then(() => {
-          this.setState({
-            breeds: updateBreeds
-          });
+          this.setState({breeds: updateBreeds});
           localStorage.setItem('breeds', JSON.stringify(updateBreeds))
         })
     })

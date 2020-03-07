@@ -52,6 +52,11 @@ a:hover {
   color: white;
   font-size: 2em;
   padding: 0 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 /* end HEADER */
 
@@ -104,11 +109,12 @@ a:hover {
 /* end sidebar */
 
 
-
 /* MAIN */
 main {
   min-height: calc(90vh - (var(--margin) * 2));
-  margin: var(--margin);
+  padding: var(--margin);
+  padding-top: calc(var(--header-height) + var(--padding));
+  min-height: 100vh;
 }
 
 main h2 {
@@ -116,7 +122,6 @@ main h2 {
   margin: var(--padding);
 }
 /* end MAIN */
-
 
 .swipeable-list-item {
   background-color: red;
@@ -135,7 +140,6 @@ main h2 {
   height: auto;
 }
 
-
 /* CONROLSBAR */
 .controls-bar {
   width: 100%;
@@ -153,13 +157,8 @@ main h2 {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   font-size: 1.3em;
   transition: all .3s;
+  cursor: pointer;
 }
-.controls-bar button:active,
-.controls-bar button:hover {
-  transform: scale(1.1);
-  transition: all .2s;
-}
-
 .controls-bar button.like {
   color: green;
 }
@@ -171,8 +170,6 @@ main h2 {
 }
 
 /* end CONROLSBAR */
-
-
 
 /* BREEDS */
 .breeds-list {
@@ -229,20 +226,31 @@ main h2 {
 }
 /* end HOME */
 
-
-.react-swipe-card {
+.choices-card {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+.choices-card .cards{
+  position: relative;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  background-color: var(--background-color);
+  overflow: hidden;
 }
-.react-swipe-card .card{
-  width: 100%;
-  min-height: 350px;
-  background-color: #fff;
+.choices-card .card{
   position: absolute;
   top: 0;left: 0;right: 0;bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: var(--background-color);
+}
+.choices-card .card img{
+  width: 100%;
 }
